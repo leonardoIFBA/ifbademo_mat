@@ -43,6 +43,12 @@ public class Funcionario extends AbstractEntity<Long> {
     public void setDataSaida(LocalDate dataSaida) {
         this.dataSaida = dataSaida;
     }
+    @Override
+    public String toString() {
+        return "Funcionario [nome=" + nome + ", salario=" + salario + ", dataEntrada=" + dataEntrada + ", dataSaida="
+                + dataSaida + "]";
+    }
 
+    
     
 }

@@ -23,20 +23,23 @@ public class Ifbademo_matApplication {
 	@Bean
 	//public CommandLineRunner demo(Departamentos dep) {
 	public CommandLineRunner demo(ICargoRepository caRep, 
-	IDepartamentoRepository depRep, IEnderecoRepository endRep, IFuncionarioRepository funRep) {
+	IDepartamentoRepository depRep, IEnderecoRepository endRep, 
+							IFuncionarioRepository funRep) {
 		return (args) -> {
 
 			Cargo c = new Cargo();
 			c.setNome("SEGURANÇA");
-			caRep.save(c);
+			//caRep.save(c);
 
 			Departamento d = new Departamento();
 			d.setNome("TI");
-			depRep.save(d);
+			//depRep.save(d);
 
 			//criar a inclusao do endereco e do funcionario
-
-			System.out.println(caRep.findAll());
+			//System.out.println(funRep.findAll());
+			System.out.println(funRep.findByNome("LEO"));
+			System.out.println(funRep.findByNomeAndSalario("GOKU", 500D));
+			
 		};
 	}
 }
