@@ -18,6 +18,14 @@ public class Funcionario extends AbstractEntity<Long> {
     @Column(name = "data_saida", columnDefinition = "DATE")
     private LocalDate dataSaida;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id_fk")
+    private Endereco endereco;
+
+    @ManyToOne
+    @JoinColumn(name = "cargo_id_fk")
+    private Cargo cargo;
+
     //métodos getter e setter
     public String getNome() {
         return nome;
@@ -43,11 +51,27 @@ public class Funcionario extends AbstractEntity<Long> {
     public void setDataSaida(LocalDate dataSaida) {
         this.dataSaida = dataSaida;
     }
+
+    
+    public Endereco getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+    public Cargo getCargo() {
+        return cargo;
+    }
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
     @Override
     public String toString() {
         return "Funcionario [nome=" + nome + ", salario=" + salario + ", dataEntrada=" + dataEntrada + ", dataSaida="
-                + dataSaida + "]";
+                + dataSaida + ", endereco=" + endereco + ", cargo=" + cargo + "]";
     }
+
+    
 
     
     
